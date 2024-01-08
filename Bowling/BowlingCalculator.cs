@@ -17,7 +17,7 @@
                 {
                     return frames.Skip(index).Take(3).Sum(x => x.Score);
                 }
-                return frames.Skip(index).Take(2).Sum(x=>x.Score);
+                return frames.Skip(index).Take(2).Sum(x => x.Score);
             }
             return frames[index].Score;
         }

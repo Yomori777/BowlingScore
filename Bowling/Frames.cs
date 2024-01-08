@@ -6,11 +6,11 @@
 
         public int FrameNumber => GetFrameNumber();
 
-        public bool IsEnd => GetGameEnd();
+        public bool IsEnd => IsGameEnd();
 
         public int Score => Enumerable.Range(0, _frames.Count >= 10 ? 10 : _frames.Count).Sum(x => GetFrameScore(x));
 
-        private bool GetGameEnd()
+        private bool IsGameEnd()
         {
             if (_frames.Count >= 12) return true;
             if (0 <= _frames.Count && _frames.Count < 10) return false;
