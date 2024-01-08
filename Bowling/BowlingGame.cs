@@ -1,9 +1,4 @@
-﻿
-
-
-using System;
-
-namespace Bowling
+﻿namespace Bowling
 {
     public class BowlingGame
     {
