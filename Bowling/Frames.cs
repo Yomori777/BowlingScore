@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Net.NetworkInformation;
-
-namespace Bowling
+﻿namespace Bowling
 {
     internal class Frames
     {
