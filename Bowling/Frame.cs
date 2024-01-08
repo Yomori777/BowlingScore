@@ -14,6 +14,8 @@ namespace Bowling
         public bool IsStrike => _pins.Count == 1 && _pins.Sum() == 10;
         public int FirstScore => _pins.Count != 0 ? _pins[0] : 0;
 
+        public bool IsBowl => _pins.Count != 0;
+
         internal void Bowl(int pin)
         {
             _pins.Add(pin);
