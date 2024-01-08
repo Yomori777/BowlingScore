@@ -3,7 +3,7 @@
     public class BowlingGame
     {
         Frames _frames = new();
-        public int Score => _frames.GetTotalScore();
+        public int Score => _frames.Score;
 
         public int FrameNumber => _frames.FrameNumber;
 

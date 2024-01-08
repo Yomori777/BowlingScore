@@ -105,6 +105,7 @@ namespace TestProject1
             {
                 Assert.IsTrue(false == game.IsEnd);
                 game.Bowl(5);
+                Assert.IsTrue(false == game.IsEnd);
                 game.Bowl(4);
             }
             Assert.IsTrue(true == game.IsEnd);
@@ -124,6 +125,24 @@ namespace TestProject1
             game.Bowl(5);
             Assert.IsTrue(false == game.IsEnd);
             game.Bowl(10);
+            Assert.IsTrue(true == game.IsEnd);
+        }
+        [TestMethod]
+        public void TestFrameEnd11sStrike()
+        {
+            var game = new BowlingGame();
+            foreach (var _ in Enumerable.Range(0, 9))
+            {
+                Assert.IsTrue(false == game.IsEnd);
+                game.Bowl(5);
+                game.Bowl(4);
+            }
+            Assert.IsTrue(false == game.IsEnd);
+            game.Bowl(10);
+            Assert.IsTrue(false == game.IsEnd);
+            game.Bowl(5);
+            Assert.IsTrue(false == game.IsEnd);
+            game.Bowl(4);
             Assert.IsTrue(true == game.IsEnd);
         }
     }

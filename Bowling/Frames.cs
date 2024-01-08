@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections;
 using System.Net.NetworkInformation;
 
@@ -13,12 +12,15 @@ namespace Bowling
 
         public bool IsEnd => GetGameEnd();
 
+        public int Score => Enumerable.Range(0, _frames.Count >= 10 ? 10 : _frames.Count).Sum(x => GetFrameScore(x));
+
         private bool GetGameEnd()
         {
             if (_frames.Count >= 12) return true;
             if (0 <= _frames.Count && _frames.Count < 10) return false;
-            if (!_frames[9].IsStrike && !_frames[9].IsSpare) return true;
+            if (!_frames[9].IsStrike && !_frames[9].IsSpare && _frames[9].IsFull) return true;
             if (_frames.Count >= 11 && _frames[9].IsSpare && _frames[10].IsBowl) return true;
+            if (_frames.Count >= 11 && _frames[9].IsStrike && !_frames[10].IsStrike && _frames[10].IsFull) return true;
             return false;
         }
 
@@ -33,11 +35,6 @@ namespace Bowling
         {
             var frame = GetNowFrame();
             frame.Bowl(pin);
-        }
-
-        internal int GetTotalScore()
-        {
-            return Enumerable.Range(0, _frames.Count >= 10 ? 10 : _frames.Count).Sum(x => GetFrameScore(x));
         }
 
         public int GetFrameScore(int index)
