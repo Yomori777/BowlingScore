@@ -4,11 +4,9 @@
     {
         List<Frame> _frames = new();
 
-        public int FrameNumber => GetFrameNumber();
-
-        public bool IsEnd => IsGameEnd();
-
-        public int Score => Enumerable.Range(0, _frames.Count >= 10 ? 10 : _frames.Count).Sum(x => GetFrameScore(x));
+        internal int FrameNumber => GetFrameNumber();
+        internal bool IsEnd => IsGameEnd();
+        internal int Score => Enumerable.Range(0, _frames.Count >= 10 ? 10 : _frames.Count).Sum(x => GetFrameScore(x));
 
         private bool IsGameEnd()
         {
@@ -33,7 +31,7 @@
             frame.Bowl(pin);
         }
 
-        public int GetFrameScore(int index)
+        internal int GetFrameScore(int index)
         {
             if (index >= _frames.Count) return 0;
             return BowlingCalculator.Calculate(_frames, index);
